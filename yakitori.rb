@@ -14,7 +14,7 @@ TEAM = ENV['ESA_TEAM_NAME']
 STAR_GRAVITY = 1.0
 COMMENT_GRAVITY = 1.2
 WATCHERS_GRAVITY = 0.2
-GRAVITY = 1.8
+GRAVITY = 1.5
 
 client = Esa::Client.new(access_token: ESA_ACCESS_TOKEN, current_team: TEAM)
 
