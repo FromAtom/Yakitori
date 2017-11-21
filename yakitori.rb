@@ -79,31 +79,31 @@ redis.set(REDIS_KEY, result_posts.take(30).to_json)
 puts "[LOG] End save to redist"
 
 ## Slackに通知
-puts "[LOG] Start send to slack"
-attachments = []
-result_posts.take(5).each do |post|
-  attachment = {
-    :title => post[:full_title],
-    :title_link => post[:url],
-    :author_name => post[:user]['screen_name'],
-    :author_icon => post[:user]['icon']
-  }
-  attachments << attachment
-end
+# puts "[LOG] Start send to slack"
+# attachments = []
+# result_posts.take(5).each do |post|
+#   attachment = {
+#     :title => post[:full_title],
+#     :title_link => post[:url],
+#     :author_name => post[:user]['screen_name'],
+#     :author_icon => post[:user]['icon']
+#   }
+#   attachments << attachment
+# end
 
-read_more = {
-  :title => '> もっと見る',
-  :title_link => 'https://yakitori-negima.herokuapp.com/',
-}
-attachments << read_more
+# read_more = {
+#   :title => '> もっと見る',
+#   :title_link => 'https://yakitori-negima.herokuapp.com/',
+# }
+# attachments << read_more
 
-payload = {
-  :username => 'yakitori',
-  :text     => 'いまアツいesaをお知らせ！',
-  :attachments => attachments
- }.to_json
+# payload = {
+#   :username => 'yakitori',
+#   :text     => 'いまアツいesaをお知らせ！',
+#   :attachments => attachments
+#  }.to_json
 
-slack_url = URI.parse(SLACK_ENDPOINT)
-response = Net::HTTP.post_form(slack_url, { 'payload' => payload })
-puts response.body
-puts "[LOG] End send to slack"
+# slack_url = URI.parse(SLACK_ENDPOINT)
+# response = Net::HTTP.post_form(slack_url, { 'payload' => payload })
+# puts response.body
+# puts "[LOG] End send to slack"
