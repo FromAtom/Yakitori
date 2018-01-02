@@ -25,7 +25,7 @@ posts_buffer = []
 
 loop do
   puts "[LOG] Page #{page} start."
-  response = client.posts({page: page, per_page: LOAD_PER_PAGE}).body
+  response = client.posts(page: page, per_page: LOAD_PER_PAGE).body
   if response['error']
     puts "[ERROR] #{response['error']} : #{response['message']}"
     exit
