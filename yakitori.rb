@@ -23,7 +23,7 @@ client = Esa::Client.new(access_token: ESA_ACCESS_TOKEN, current_team: TEAM)
 page = 1
 posts_buffer = []
 
-while true do
+loop do
   puts "[LOG] Page #{page} start."
   response = client.posts({:page => page, :per_page => LOAD_PER_PAGE}).body
   if response['error']
