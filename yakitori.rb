@@ -63,9 +63,7 @@ loop do
   puts "[LOG] Page #{page} end."
 
   next_page = response['next_page']
-  unless next_page
-    break
-  end
+  break unless next_page
 
   page += 1
 end
