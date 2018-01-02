@@ -25,7 +25,7 @@ posts_buffer = []
 
 loop do
   puts "[LOG] Page #{page} start."
-  response = client.posts({:page => page, :per_page => LOAD_PER_PAGE}).body
+  response = client.posts({page: page, per_page: LOAD_PER_PAGE}).body
   if response['error']
     puts "[ERROR] #{response['error']} : #{response['message']}"
     exit
@@ -49,14 +49,14 @@ loop do
     score = (point - 1.0) / ((duration_hour + 2.0) ** GRAVITY)
 
     posts_buffer << {
-      :full_title => full_title,
-      :user => user,
-      :comments_count => comments_count,
-      :star_count => star_count,
-      :watchers_count => watchers_count,
-      :url => url,
-      :score => score,
-      :created_at => created_at
+      full_title: full_title,
+      user: user,
+      comments_count: comments_count,
+      star_count: star_count,
+      watchers_count: watchers_count,
+      url: url,
+      score: score,
+      created_at: created_at
     }
   end
 
@@ -74,6 +74,6 @@ result_posts = posts_buffer.sort_by { |v| -v[:score] }
 
 ## Redisに保存
 puts "[LOG] Start save to redist"
-redis = Redis.new(:url => REDIS_URL)
+redis = Redis.new(url: REDIS_URL)
 redis.set(REDIS_KEY, result_posts.take(30).to_json)
 puts "[LOG] End save to redist"
