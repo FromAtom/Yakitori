@@ -1,3 +1,4 @@
+require 'json'
 require 'redis'
 require_relative 'lib/yakitori'
 

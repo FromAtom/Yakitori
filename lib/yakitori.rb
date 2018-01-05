@@ -1,7 +1,6 @@
 # require 'net/http' # looks it is not used
 require 'time'
 require 'esa'
-require 'json'
 
 require_relative 'yakitori/weighting_calculator'
 require_relative 'yakitori/client'
