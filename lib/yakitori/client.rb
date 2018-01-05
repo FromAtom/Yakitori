@@ -53,9 +53,7 @@ module Yakitori
 
       posts << response['posts'] || []
 
-      next_page = response['next_page']
-
-      all_posts(posts, current_page_count + 1, next_page)
+      all_posts(posts, current_page_count + 1, response['next_page'])
     end
   end
 end
