@@ -2,12 +2,14 @@ module Yakitori
   # Esa に問い合わせた全記事に重み付け計算結果を付与する
   class Client
     LOAD_PER_PAGE = ENV['LOAD_PER_PAGE'] || 100
+    ESA_ACCESS_TOKEN = ENV['ESA_ACCESS_TOKEN']
+    ESA_TEAM_NAME = ENV['ESA_TEAM_NAME']
 
     def initialize
       @esa_client =
         ::Esa::Client.new(
-          access_token: ENV['ESA_ACCESS_TOKEN'],
-          current_team: ENV['ESA_TEAM_NAME']
+          access_token: ESA_ACCESS_TOKEN,
+          current_team: ESA_TEAM_NAME
         )
     end
 
