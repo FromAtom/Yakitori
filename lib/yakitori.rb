@@ -1,4 +1,3 @@
-# require 'net/http' # looks it is not used
 require 'time'
 require 'esa'
 
