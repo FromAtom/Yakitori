@@ -1,0 +1,31 @@
+{
+  "name": "Yakitori",
+  "description": "Calculate Hot-entries from your Esa team's posts",
+  "keywords": [
+    "productivity",
+    "team"
+  ],
+  "repository": "https://github.com/FromAtom/Yakitori",
+  "success_url": "/",
+  "env": {
+    "LOAD_PER_PAGE": {
+      "description": "スコア計算に用いる全ポストのうち、順次処理で一度に読み込む数(デフォルト100)を設定します。",
+      "value": "100"
+    },
+    "ESA_ACCESS_TOKEN": {
+      "description": "Esa で発行した Personal Access Token を設定します。(要Read権限)"
+    },
+    "ESA_TEAM_NAME": {
+      "description": "ホットエントリを計算したい自チーム名を設定します。"
+    }
+  },
+  "image": "heroku/ruby",
+  "addons": [
+    {
+      "plan": "scheduler:standard"
+    },
+    {
+      "plan": "redistogo:nano"
+    }
+  ]
+}
