@@ -37,6 +37,7 @@ module Yakitori
         star_count: post['stargazers_count'],
         watchers_count: post['watchers_count'],
         url: post['url'],
+        wip: post['wip'],
         score: score,
         created_at: post['created_at']
       }
