@@ -1,7 +1,11 @@
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/FromAtom/Yakitori)
+![icon](icon.png)
 
-# Yakitori
-esaのホッテントリを計算してRedisに保存する。HerokuのSchedulerとRedisToGoを使って動かすことを想定しています。
+esaのホッテントリを計算してRedisに保存するツールです。HerokuのSchedulerとRedisToGoを使って動かすことを想定しています。
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/FromAtom/Yakitori)
 
 ## License
 [MIT](LICENSE)
+
+## Note
+Icon made by Freepik from [www.flaticon.com](www.flaticon.com)
