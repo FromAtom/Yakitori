@@ -25,7 +25,7 @@
       "plan": "scheduler:standard"
     },
     {
-      "plan": "redistogo:nano"
+      "plan": "heroku-redis:hobby-dev"
     }
   ]
 }
