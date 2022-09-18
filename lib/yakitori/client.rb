@@ -16,7 +16,7 @@ module Yakitori
     def burn(upto = 30)
       # Note: スコア算出・比較のために1度すべてのポストを取得する必要がある
       posts =
-        all_posts.flatten(1).map do |post|
+        all_posts.map do |post|
           score =
             ::Yakitori::WeightingCalculator.calc(post)
 
@@ -46,18 +46,24 @@ module Yakitori
     def all_posts(posts = [], current_page_count = 1, next_page = 0)
       return posts unless next_page
 
-      # esaのAPIで10,000件以上のページネーションが制限されている
-      return posts if posts.count >= 10000
+      # esaのAPIで10,000件を超えるページネーションが制限されている
+      if posts.count >= 10000
+        return posts
+      elsif (posts.count + LOAD_PER_PAGE) >= 10000
+        per_page = 10000 - posts.count
+      else
+        per_page = LOAD_PER_PAGE
+      end
 
       # ページ移動単位で配列に包まれたハッシュが返ってくる
       response =
-        @esa_client.posts(page: current_page_count, per_page: LOAD_PER_PAGE).body
+        @esa_client.posts(page: current_page_count, per_page: per_page).body
       if response['error']
         puts "[ERROR] #{response['error']} : #{response['message']}"
         raise 'Esa Posts Client: Response Error'
       end
 
-      posts << response['posts'] || []
+      posts.concat(response['posts'] || [])
 
       all_posts(posts, current_page_count + 1, response['next_page'])
     end
