@@ -46,6 +46,9 @@ module Yakitori
     def all_posts(posts = [], current_page_count = 1, next_page = 0)
       return posts unless next_page
 
+      # esaのAPIで10,000件以上のページネーションが制限されている
+      return posts if posts.count >= 10000
+
       # ページ移動単位で配列に包まれたハッシュが返ってくる
       response =
         @esa_client.posts(page: current_page_count, per_page: LOAD_PER_PAGE).body
