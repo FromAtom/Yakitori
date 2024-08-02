@@ -48,7 +48,8 @@ GEM
     redis-client (0.8.1)
       connection_pool
     regexp_parser (2.5.0)
-    rexml (3.2.5)
+    rexml (3.3.3)
+      strscan
     rubocop (1.36.0)
       json (~> 2.3)
       parallel (~> 1.10)
@@ -63,6 +64,7 @@ GEM
       parser (>= 3.1.1.0)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
+    strscan (3.1.0)
     unicode-display_width (2.3.0)
 
 PLATFORMS
